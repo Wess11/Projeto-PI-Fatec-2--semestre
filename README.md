@@ -15,8 +15,8 @@ Nesse projeto criamos o site AWM Eletronic Waste com o foco no tema escolhido pe
 ## Back end
 - PHP
 ## Front end
-- HTML/CSS 
-- Bootstrap 
+- HTML
+- CSS
 ## Implantação em produção
 - Front end WEB: 
 - Banco de dados: SQL Server 2019
