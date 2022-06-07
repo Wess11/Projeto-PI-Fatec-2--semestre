@@ -8,9 +8,7 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Wess11/Projeto-PI-Fatec-2--semestre/blob/main/LICENSE)
 
 # Sobre o Projeto
-
-
-
+Nesse projeto criamos o site AWM Eletronic Waste com o foco no tema escolhido pela FATEC nesse 2º semestre: "Aquecimento Global", compramos e vendemos os lixos eletrônicos de todos os nossos clientes e contribuímos com o meio ambiente através de minimizar todos os lixos eletrônicos do planeta, reutilização do lixo e doações que agregam na vida do meio ambiente e humana.
 
 # Tecnologia utilizadas:
 
