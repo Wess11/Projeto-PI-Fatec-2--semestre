@@ -41,7 +41,7 @@ Marius Pessi<br/>
 ## GitHub
 - Wesley: https://github.com/Wess11
 
-- Alexandre Garcia:https://github.com/AlexandreGarc
+- Alexandre Garcia: https://github.com/AlexandreGarc
 
 - Marius Pessi: https://github.com/mariuspessi
 
