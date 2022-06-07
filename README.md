@@ -4,10 +4,10 @@
 
 
 # AWM Eletronic Waste 
-## Sistema para compra e venda de lixos eletrônicos como foco principal no meio ambiente
+## Sistema para compra e venda de lixos eletrônicos com foco principal no meio ambiente
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Wess11/Projeto-PI-Fatec-2--semestre/blob/main/LICENSE)
 
-# Sobre o projeto
+# Sobre o Projeto
 
 
 
@@ -33,7 +33,7 @@ Alexandre Garcia<br/>
 Marius Pessi<br/>
 
 
-## LinKedin
+## Linkedin
 - Wesley: https://www.linkedin.com/in/wesley-fernandes-81b8a2211/
 
 - Alexandre Garcia: https://www.linkedin.com/in/alexandre-garcia-94b988110/
