@@ -52,6 +52,6 @@ Marius Pessi<br/>
 - Nilton Sacco - Banco de Dados - Relacional <br/>
 - Orlando Saraiva - Desenvolvimento Web II <br/>
 
-## Intituição
+## Instituição
 - Faculdade de Tecnologia do Centro Paula Souza - Fatec Araras<br/>
 https://fatecararas.cps.sp.gov.br/
