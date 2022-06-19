@@ -29,48 +29,30 @@ $cliente = $DBMagico->selecionar_login($email);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,600&display=swap" rel="stylesheet">
-    <title>Tela de login</title>
-    <style>
-        body{
-            font-family: Roboto Flex;
-    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
-        }
-        div{
-            background-color: rgba(0, 0, 0, 0.9);
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 3rem;
-            border-radius: 1rem;
-            color: white;
-        }
-        input{
-            padding: 1rem;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            border-radius: 1rem;
-        }
-        .inputSubmit{
-            background-color: dodgerblue;
-            border: none;
-            padding: 1rem;
-            width: 100%;
-            border-radius: 0.5rem;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            
-        }
-        .inputSubmit:hover{
-            background-color: deepskyblue;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styleLogin.css">
+    <title>tela de login | AWM</title>
 </head>
 <body>
-    <a href="index.php">Voltar</a>
-    <div>
+
+    <section class="content">
+        <div class="texto">
+            <img class="suporte" src="images/icone-suporte.png">
+            <h1>CONTATO SUPORTE</h1> 
+        <p>
+            <span style="color: #469FCA;"><br><br>Caso esteja com algum problema: <br><br></span>entre em contato conosco que iremos retornar <br> o mais rapido possivel.
+        </p>
+        <br><br>
+        <div class="contatos" >
+                        <h3>Contate-Nos</h3>
+                    <p> <i class="fas fa-phone"></i> +55 19 999999999. </p>
+                    <p> <i class="fas fa-envelope"></i> example@gmail.com </p>
+                    <p> <i class="fas fa-map-marker-alt"></i> Araras, Brasil - 400104 </p>
+                    </div>
+        </div>
+    </section>
+
+    
+    <div class="login">
         <img src="/images/logo4.png" alt="">
         <h1>Login</h1>
         <form action="login.php" method="POST">
@@ -83,3 +65,4 @@ $cliente = $DBMagico->selecionar_login($email);
     </div>
 </body>
 </html>
+
