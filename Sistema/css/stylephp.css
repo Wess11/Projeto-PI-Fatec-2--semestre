@@ -178,6 +178,46 @@ header .navbar a:hover{
     padding:1rem 6rem;
 }
 
+.formulario{
+    display: flex; 
+    justify-content: center;
+}
+
+.contato{
+    width: 100%;
+    max-width: 25rem;
+}
+
+.contato h3{
+    text-align: center;
+    font-size: 3rem;
+    color: #469FCA;
+}
+
+.sugestoes p{
+    padding: 0 15px;
+    color: #fff;
+    font-size: 15px ;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.field{
+    padding: .5rem;
+    width: 25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Roboto Flex;
+    font-size: 16px;
+}
+
+.textarea{
+    height: 150px;
+}
+
 .materiais{
     min-height: 65vh;
     display: flex;

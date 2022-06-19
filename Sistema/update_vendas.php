@@ -100,7 +100,7 @@ legend{
 <body>
 <body>
 <div class="card text-center" style="padding:15px;">
-<legend><b>Vendas</b></legend>
+<legend><b>Formulário Vendas</b></legend>
 </div><br> 
 <div class="container">
     <div class="row">

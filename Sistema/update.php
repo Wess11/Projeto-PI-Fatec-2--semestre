@@ -47,8 +47,9 @@ legend{
     border: 1px solid dodgerblue;
     padding: 10px;
     text-align: center;
-    background-color: dodgerblue;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
+    color: white;
 }
 .inputBox{
     position: relative;
@@ -97,7 +98,7 @@ legend{
     </style>
 <body>
 <div class="card text-center" style="padding:15px;">
-  <h4>Dados Clientes</h4>
+<legend><b>Fórmulário Clientes</b></legend>
 </div><br> 
 <div class="container">
     <div class="row">

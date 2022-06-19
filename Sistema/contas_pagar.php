@@ -138,8 +138,8 @@ legend{
                       <input type="text" class="form-control" name="nr_agencia" placeholder="Entre com a Agência" required="">
                     </div>
                     <div class="form-group">
-                      <label for="ds_banco">dsBanco:</label>
-                      <input type="text" class="form-control" name="ds_banco" placeholder="Entre com o ds Banco" required="">
+                      <label for="ds_banco">Banco:</label>
+                      <input type="text" class="form-control" name="ds_banco" placeholder="Entre com o Banco" required="">
                     </div>
                     <div class="form-group">
                       <label for="vl_pago">Valor Pago:</label>

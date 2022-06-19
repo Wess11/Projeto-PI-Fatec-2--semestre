@@ -4,6 +4,7 @@
 
 body{
     background-color: rgb(31, 31, 31);
+    background-image: linear-gradient(to right, rgb(8, 8, 8), rgb(36, 45, 68));
 }
 
 *, a{
@@ -196,6 +197,14 @@ header .navbar a:hover{
 .quem-somos .content h4{
     color:rgb(255, 255, 255);
     font-size: 6.5rem;
+}
+
+.quem-somos img{
+    overflow: hidden;
+    border-radius: 8rem;
+    box-shadow: 0 .8rem 4rem rgba(255, 255, 255, 0.3);
+    position: relative;
+    margin:5rem;
 }
 
 .quem-somos .content p{

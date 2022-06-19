@@ -96,7 +96,7 @@ legend{
 <body>
 <a class="voltar" href="consulta_produto.php">Voltar</a>
 <div class="card text-center" style="padding:15px;">
-<legend><b>Fórmulário Vendas</b></legend>
+<legend><b>Fórmulário Produtos</b></legend>
 </div><br> 
 <div class="container">
     <div class="row">

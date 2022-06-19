@@ -70,7 +70,7 @@ body{
     }
   ?>
   <h2><div class="form-group">
-  <label for="id_venda">Vendas</label><a href="produto.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a></h2>
+  <label for="id_venda">Produtos</label><a href="produto.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a></h2>
   <table class="table table-hover">
     <thead>
       <tr>

@@ -47,8 +47,9 @@ legend{
     border: 1px solid dodgerblue;
     padding: 10px;
     text-align: center;
-    background-color: dodgerblue;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
+    color: white;
 }
 .inputBox{
     position: relative;
@@ -98,7 +99,7 @@ legend{
 </head>
 <body>
 <div class="card text-center" style="padding:15px;">
-<legend><b>Contas à receber</b></legend>
+<legend><b>Formulário Contas à receber</b></legend>
 </div><br> 
 <div class="container">
     <div class="row">

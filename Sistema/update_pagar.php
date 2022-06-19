@@ -99,7 +99,7 @@ legend{
 </head>
 <body>
 <div class="card text-center" style="padding:15px;">
-<legend><b>Contas à pagar</b></legend>
+<legend><b>Formulário Contas à Pagar</b></legend>
 </div><br> 
 <div class="container">
     <div class="row">
