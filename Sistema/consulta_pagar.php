@@ -18,8 +18,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <style>
+  .home{
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+}
+body{
+    font-family: Roboto Flex;
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+    color: white;
+}
+.table{
+  color:white;
+}
+.card{
+  background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+  color: white;;
+}
+</style>
 </head>
 <body>
+<a class="home" href="principal.php">Home</a>
 <div class="card text-center" style="padding:15px;">
   <h4>Consulta Contas Pagar</h4>
 </div><br><br> 
@@ -45,10 +69,9 @@
     }
   ?>
   <h2><div class="form-group">
-                      <label for="cod_carteira">Conta:</label>
-                      <input type="text" class="form-control" name="cod_carteira" placeholder="Entre com o número da carteira" required="">
-                    </div> <button class="btn btn-primary mr-2"><a href="display.php?editId=<?php echo $pagar['cod_carteira'] ?>">
-              <i class="fa fa-search text-white" aria-hidden="true"></i></a></button></h2>
+                      <label for="cod_carteira">Contas Pagar</label><a href="contas_pagar.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a>
+                      </h2>
+
   <table class="table table-hover">
     <thead>
       <tr>
@@ -79,12 +102,13 @@
           <td>
             <button class="btn btn-primary mr-2"><a href="update_pagar.php?editId=<?php echo $pagar['cod_carteira'] ?>">
               <i class="fa fa-pencil text-white" aria-hidden="true"></i></a></button>
+            <button class="btn btn-danger"><a href="consulta_pagar.php?deleteId=<?php echo $pagar['cod_carteira'] ?>" onclick="confirm('Tem certeza que deseja excluir o registro?')">
+              <i class="fa fa-trash text-white" aria-hidden="true"></i>
             
             </a></button>
           </td>
         </tr>
       <?php }
-
       ?>
     </tbody>
   </table>

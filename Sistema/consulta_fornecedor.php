@@ -18,8 +18,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <style>
+  .home{
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+}
+body{
+    font-family: Roboto Flex;
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+    color: white;
+}
+.table{
+  color:white;
+}
+.card{
+  background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+  color: white;;
+}
+
+</style>
 </head>
 <body>
+<a class="home" href="principal.php">Home</a>
 <div class="card text-center" style="padding:15px;">
   <h4>Consulta Fornecedores</h4>
 </div><br><br> 
@@ -45,10 +70,8 @@
     }
   ?>
   <h2><div class="form-group">
-                      <label for="ds_fornecedor">fornecedor:</label>
-                      <input type="text" class="form-control" name="ds_fornecedor" placeholder="Entre com o nome" required="">
-                    </div> <button class="btn btn-primary mr-2"><a href="display.php?editId=<?php echo $fornecedor['id_fornecedor'] ?>">
-              <i class="fa fa-search text-white" aria-hidden="true"></i></a></button></h2>
+                      <label for="ds_fornecedor">Fornecedores</label><a href="fornecedor.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a></h2>
+
   <table class="table table-hover">
     <thead>
       <tr>
@@ -79,6 +102,8 @@
           <td>
             <button class="btn btn-primary mr-2"><a href="update_fornecedor.php?editId=<?php echo $fornecedor['id_fornecedor'] ?>">
               <i class="fa fa-pencil text-white" aria-hidden="true"></i></a></button>
+             <button class="btn btn-danger"><a href="consulta_fornecedor.php?deleteId=<?php echo $fornecedor['id_fornecedor'] ?>" onclick="confirm('Tem certeza que deseja excluir o registro?')">
+              <i class="fa fa-trash text-white" aria-hidden="true"></i>
             
             </a></button>
           </td>
