@@ -12,12 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,600&display=swap" rel="stylesheet">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stylephp.css">
     <title>Faça seu cadastro</title>
 
     <!-- favicon  -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+
 
 </head>
 <body>
@@ -37,7 +38,7 @@
         <a href="descarte.html">Sobre o lixo Eletronico</a>
         <a href="doacao.html">Faça sua doação</a>
         <a href="#Contatos">Contatos</a>
-        <a href="php.html">Sistema de Gerenciamento</a>
+        <a href="php.html">Login | Cadastre-se</a>
     </nav>
 
 </header>
@@ -95,7 +96,27 @@
 
     <h1 class="heading">SOLICITE AGORA SUA COLETA</h1>
     
+    <section class="formulario">
 
+        <div class="contato">
+            <div class="titulo">
+                <h3>Formulário de contato</h3>
+            </div>
+            <br><br>
+            <div class="sugestoes">
+                <p>Para enviar sugestões, críticas ou elogios, preencha o formulário abaixo, ou se preferir, fale com a nossa central de atendimento nacional, através do telefone a seguir:</p>
+            </div>
+            <br><br>
+            <form class="form" method="post" action="">
+                <input class="field" name="name" placeholder="nome">
+                <input class="field" name="email" placeholder="Seu melhor E-mail">
+                <input class="field" type="tel" name="telefone"placeholder="Telefone">
+                <textarea class="field" name="mesage" placeholder="Digite sua mensagem aqui."></textarea>
+                <input class="field" type="submit" value="Enviar">
+            </form>
+        </div>
+
+    </section>
 
     <div class="box-container">
 

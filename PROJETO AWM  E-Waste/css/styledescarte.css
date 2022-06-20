@@ -4,6 +4,7 @@
 
 body{
     background-color: rgb(31, 31, 31);
+    background-image: linear-gradient(to right, rgb(8, 8, 8), rgb(36, 45, 68));
 }
 
 *, a{
@@ -566,6 +567,10 @@ header .navbar a:hover{
     width:27rem;
 }
 
+.titulo{
+    color: #469FCA;
+    font-size: 20px;
+}
 .valores h1{
     color: #fff;
 }
@@ -579,10 +584,12 @@ header .navbar a:hover{
 
 
 .valores p{
+    line-height: 22px;
+    letter-spacing: normal;
     color: #fff;
     font-size: 1.5rem ;
     height: 3rem;
-    padding: 0 35px;
+    padding: 15px 15px;
 }
 
 .events{
