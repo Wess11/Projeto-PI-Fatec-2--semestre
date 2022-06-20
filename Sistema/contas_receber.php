@@ -31,10 +31,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+  <style>
+        body{
+    font-family: Roboto Flex;
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+}
+
+.box{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 25%;
+}
+fieldset{
+    border: 3px solid dodgerblue;
+}
+legend{
+  border: 1px solid dodgerblue;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    color: white;
+}
+.inputBox{
+    position: relative;
+}
+.inputUser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.labelInput{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.voltar{
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+#submit{
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#submit:hover{
+    background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
+}
+    </style>
 </head>
 <body>
+<a class="voltar" href="consulta_receber.php">Voltar</a>
 <div class="card text-center" style="padding:15px;">
-  <h4>Contas Receber</h4>
+<legend><b>Fórmulário Contas à Receber</b></legend>
 </div><br> 
 <div class="container">
     <div class="row">
@@ -66,7 +141,7 @@
                       <input type="text" class="form-control" name="ds_banco" placeholder="Entre com o ds Banco" required="">
                     </div>
                     <div class="form-group">
-                      <label for="valor_total">Valor Pago:</label>
+                      <label for="valor_total">Valor total:</label>
                       <input type="text" class="form-control" name="valor_total" placeholder="Entre com o valor pago" required="">
                     </div>
                     <div class="form-group">
@@ -82,7 +157,7 @@
                       <input type="text" class="form-control" name="dt_vencimento" placeholder="Entre com a data de vencimento" required="">
                     </div>
                     <div class="form-group">
-                      <label for="dt_recebimento">Data Pagamento:</label>
+                      <label for="dt_recebimento">Data Recebimento:</label>
                       <input type="text" class="form-control" name="dt_recebimento" placeholder="Entre com a data de pagamento" required="">
                     </div>
                     <div class="form-group">
@@ -116,14 +191,7 @@
                       
                     <input type="submit" name="cadastro" class="btn btn-primary" style="float:right;" value="Cadastrar">
 
-                      <button class="btn btn-primary mr-2"><a href="update.php?editId=<?php echo $Aluno['id'] ?>">
-                      <i class="fa fa-check text-white" aria-hidden="true"></i></a></button>
                       
-                    <button class="btn btn-danger mr-2" ><a href="display.php?deleteId=<?php echo $Aluno['id'] ?>" onclick="confirm('Tem certeza que deseja excluir o registro?')">
-                     <i class="fa fa-trash text-white" aria-hidden="true"></i>
-
-                     <button class="btn btn-success mr-2"><a href="update.php?editId=<?php echo $Aluno['id'] ?>">
-                      <i class="fa fa-search text-white" aria-hidden="true"></i></a></button>
                   </form>
                 </div>
                 </div>

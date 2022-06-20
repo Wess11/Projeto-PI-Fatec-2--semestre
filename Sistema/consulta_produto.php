@@ -18,8 +18,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <style>
+  .home{
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+}
+body{
+    font-family: Roboto Flex;
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+    color: white;
+}
+.table{
+  color:white;
+}
+.card{
+  background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+  color: white;;
+}
+
+</style>
 </head>
 <body>
+<a class="home" href="principal.php">Home</a>
 <div class="card text-center" style="padding:15px;">
   <h4>Consulta Produtos</h4>
 </div><br><br> 
@@ -45,10 +70,7 @@
     }
   ?>
   <h2><div class="form-group">
-                      <label for="ds_produto">Produto:</label>
-                      <input type="text" class="form-control" name="ds_produto" placeholder="Entre com o produto" required="">
-                    </div> <button class="btn btn-primary mr-2"><a href="display.php?editId=<?php echo $produto['id_produto'] ?>">
-              <i class="fa fa-search text-white" aria-hidden="true"></i></a></button></h2>
+  <label for="id_venda">Produtos</label><a href="produto.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a></h2>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -71,8 +93,10 @@
           <td><?php echo $produto['marca'] ?></td>
           <td><?php echo $produto['observacao'] ?></td>
           <td>
-            <button class="btn btn-primary mr-2"><a href="update.php?editId=<?php echo $produto['id_produto'] ?>">
+            <button class="btn btn-primary mr-2"><a href="update_produto.php?editId=<?php echo $produto['id_produto'] ?>">
               <i class="fa fa-pencil text-white" aria-hidden="true"></i></a></button>
+            <button class="btn btn-danger"><a href="consulta_produto.php?deleteId=<?php echo $produto['id_produto'] ?>" onclick="confirm('Tem certeza que deseja excluir o registro?')">
+              <i class="fa fa-trash text-white" aria-hidden="true"></i>
             
             </a></button>
           </td>

@@ -19,22 +19,25 @@
         mysqli_close($this->conn);
     }
 
+
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         //Insere os dados do cliente na tabela do cliente
-        private function validar_id_cliente($id_cliente){
-            if ($id_cliente < 0){
+        private function validar_cliente($cpfcnpj){
+            if ($cpfcnpj < 0){
                 echo "Cliente não cadastrado";
                 return FALSE;
             }
             return TRUE;
         }
         
-        public function adicionar_cliente($nome, $cidade, $endereco, $bairro, $complemento, $cpfcnpj, $telefone, $email, $whatsapp, $observacao)
+        public function adicionar_cliente($nome, $cidade, $endereco, $bairro, $complemento, $cpfcnpj, $telefone, $email, $whatsapp, $observacao, $senha)
         {
-            if ($this->validar_id_cliente($id_cliente))
+            if ($this->validar_cliente($cpfcnpj))
             {   
-                $sql = "INSERT INTO clientes ( `nome`, `cidade`, `endereco`, `bairro`, `complemento`, `cpfcnpj`, `telefone`, `email`, `whatsapp`, `observacao` ) ";
-                $sql = $sql."VALUES ('".$nome."', '".$cidade."', '".$endereco."', '".$bairro."', '".$complemento."','".$cpfcnpj."','".$telefone."','".$email."','".$whatsapp."','".$observacao."')";
-                if (mysqli_query($this->conn, $sql)) {
+                $sql = "INSERT INTO clientes ( `nome`, `cidade`, `endereco`, `bairro`, `complemento`, `cpfcnpj`, `telefone`, `email`, `whatsapp`, `observacao`, `senha` ) ";
+                $sql = $sql."VALUES ('".$nome."', '".$cidade."', '".$endereco."', '".$bairro."', '".$complemento."','".$cpfcnpj."','".$telefone."','".$email."','".$whatsapp."','".$observacao."','".$senha."')";
+                if (mysqli_query($this->conn,$sql)) {
                   echo "Cadastro feito com sucesso";
               } else {
                   echo "Error: " . $sql . "<br>" . mysqli_error(conn);
@@ -81,11 +84,12 @@
             $cpfcnpj = $this->conn->real_escape_string ($_POST['ucpfcnpj'] ) ;
             $telefone = $this->conn->real_escape_string ($_POST['utelefone'] ) ;
             $email = $this->conn->real_escape_string ($_POST['uemail'] ) ;
+            $senha = $this->conn->real_escape_string ($_POST['usenha'] ) ;
             $whatsapp = $this->conn->real_escape_string ($_POST['uwhatsapp'] ) ;
             $observacao = $this->conn->real_escape_string ($_POST['uobservacao'] ) ;
-            $id_cliente = $this->conn->real_escape_string ($_POST['id_cliente '] ) ;
+            $id_cliente = $this->conn->real_escape_string ($_POST['id_cliente'] ) ;
         if (!empty($id_cliente) && !empty($postData)) {  
-            $query = "UPDATE clientes SET nome = '$nome', cidade = '$cidade', endereco = '$endereco', bairro = '$bairro', complemento = '$complemento', cpfcnpj = '$cpfcnpj', telefone = '$telefone', email = '$email', whatssapp = '$whatsapp', observacao = '$observacao' WHERE id_cliente = '$id_cliente'" ;
+            $query = "UPDATE clientes SET nome = '$nome', cidade = '$cidade', endereco = '$endereco', bairro = '$bairro', complemento = '$complemento', cpfcnpj = '$cpfcnpj', telefone = '$telefone', email = '$email', whatsapp = '$whatsapp', observacao = '$observacao' WHERE id_cliente = '$id_cliente'" ;
             $sql = $this->conn->query ($query) ;
             if ( $sql == true ) {  
                 header ( "Location:display.php?msg2=update" ) ;
@@ -98,19 +102,19 @@
         // Excluir dados do cliente da tabela de clientes
         public function excluir_cliente( $id_cliente )  
         {
-            $query = "Delete from clientes WHERE id = '$id_cliente'" ;
-            $sql = $this-> $conn->query($query) ;
+            $query = "Delete from clientes WHERE id_cliente = '$id_cliente'" ;
+            $sql = $this->conn->query($query) ;
         if ( $sql == true ) {  
-            header ( "Location:cadastro.php?msg3=delete" ) ;
+            header ( "Location:display.php?msg3=delete" ) ;
         } else {
             echo "O registro não exclui tente novamente" ; 
             }
         }
  
-//------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-private function validar_id_produto($id_produto){
-            if ($id_produto < 0){
+private function validar_produto($preco){
+            if ($preco < 0){
                 echo "Produto não cadastrado";
                 return FALSE;
             }
@@ -119,11 +123,11 @@ private function validar_id_produto($id_produto){
         
         public function adicionar_produto($ds_produto, $preco, $marca, $observacao)
         {
-            if ($this->validar_id_produto($id_produto))
+            if ($this->validar_produto($preco))
             {   
                 $sql = "INSERT INTO produtos ( `ds_produto`, `preco`, `marca`, `observacao` ) ";
                 $sql = $sql."VALUES ('".$ds_produto."', '".$preco."', '".$marca."', '".$observacao."')";
-                if (mysqli_query($this->$conn, $sql)) {
+                if (mysqli_query($this->conn,$sql)) {
                   echo "Cadastro feito com sucesso";
               } else {
                   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -148,7 +152,7 @@ private function validar_id_produto($id_produto){
             }
         }
         // Busca dados únicos para edição da tabela de alunos
-        public function selecionar_produto1 ($ds_produto)  
+        public function selecionar_produto1 ($id_produto)  
         {
             $query = "SELECT * FROM produtos WHERE id_produto = '$id_produto'" ;
             $result = $this->conn->query($query) ;
@@ -166,12 +170,12 @@ private function validar_id_produto($id_produto){
             $preco = $this->conn->real_escape_string ($_POST['upreco'] ) ;
             $marca = $this->conn->real_escape_string ($_POST['umarca'] ) ;
             $observacao = $this->conn->real_escape_string ($_POST['uobservacao'] ) ;
-            $id_produto = $this->conn->real_escape_string ($_POST['id_produto '] ) ;
+            $id_produto = $this->conn->real_escape_string ($_POST['id_produto'] ) ;
         if (!empty($id_produto) && !empty($postData)) {  
             $query = "UPDATE produtos SET ds_produto = '$ds_produto', preco = '$preco', marca = '$marca', observacao = '$observacao' WHERE id_produto = '$id_produto'" ;
             $sql = $this->conn->query ($query) ;
             if ( $sql == true ) {  
-                header ( "Location:display.php?msg2=update" ) ;
+                header ( "Location:consulta_produto.php?msg2=update" ) ;
             } else {
                 echo "Falha no registro atualizado, tente novamente!" ; 
             }
@@ -179,12 +183,12 @@ private function validar_id_produto($id_produto){
             
         }
         // Excluir dados do cliente da tabela de clientes
-        public function excluir_produto( $id )  
+        public function excluir_produto( $id_produto )  
         {
-            $query = "Delete from produtos WHERE id = '$id_cliente'" ;
-            $sql = $this-> conn->query($query) ;
+            $query = "Delete from produtos WHERE id_produto = '$id_produto'" ;
+            $sql = $this->conn->query($query) ;
         if ( $sql == true ) {  
-            header ( "Location:update.php?msg3=delete" ) ;
+            header ( "Location:consulta_produto.php?msg3=delete" ) ;
         } else {
             echo "O registro não exclui tente novamente" ; 
             }
@@ -245,7 +249,7 @@ private function validar_id_produto($id_produto){
         // Atualiza os dados do cliente na tabela do cliente
         public function atualizar_receber($postData)  
         {
-            $cod_banco = $this->conn-> real_escape_string ($_POST['ucodbanco'] ) ;
+            $cod_banco = $this->conn-> real_escape_string ($_POST['ucod_banco'] ) ;
             $nr_conta = $this->conn->real_escape_string ($_POST['unr_conta'] ) ;
             $nr_agencia = $this->conn->real_escape_string ($_POST['unr_agencia'] ) ;
             $ds_banco = $this->conn->real_escape_string ($_POST['uds_banco'] ) ;
@@ -260,12 +264,12 @@ private function validar_id_produto($id_produto){
             $boletobancario = $this->conn->real_escape_string ($_POST['uboletobancario'] ) ;
             $cpfcnpj = $this->conn->real_escape_string ($_POST['ucpfcnpj'] ) ;
             $observacao = $this->conn->real_escape_string ($_POST['uobservacao'] ) ;
-            $cod_carteira = $this->conn->real_escape_string ($_POST['cod_carteira '] ) ;
+            $cod_carteira = $this->conn->real_escape_string ($_POST['cod_carteira'] ) ;
         if (!empty($cod_carteira) && !empty($postData)) {  
-            $query = "UPDATE contas_receber SET codbanco = '$cod_banco', nr_conta = '$nr_conta', nr_agencia = '$nr_agencia',ds_banco = '$ds_banco',valor_total = '$valor_total',vl_jurosmes = '$vl_jurosmes',vl_jurosdia = '$vl_jurosdia',dt_vencimento = '$dt_vencimento',dt_recebimento = '$dt_recebimento',bordero = '$bordero', pix = '$pix',titulo = '$titulo', cpfcnpj = '$cpfcnpj',boletobancario = '$boletobancario', observacao = '$observacao' WHERE cod_carteira = '$cod_carteira'" ;
+            $query = "UPDATE contas_receber SET cod_banco = '$cod_banco', nr_conta = '$nr_conta', nr_agencia = '$nr_agencia',ds_banco = '$ds_banco',valor_total = '$valor_total',vl_jurosmes = '$vl_jurosmes',vl_jurosdia = '$vl_jurosdia',dt_vencimento = '$dt_vencimento',dt_recebimento = '$dt_recebimento',bordero = '$bordero', pix = '$pix',titulo = '$titulo', cpfcnpj = '$cpfcnpj',boletobancario = '$boletobancario', observacao = '$observacao' WHERE cod_carteira = '$cod_carteira'" ;
             $sql = $this->conn->query ($query) ;
             if ( $sql == true ) {  
-                header ( "Location:update_receber.php?msg2=update" ) ;
+                header ( "Location:consulta_receber.php?msg2=update" ) ;
             } else {
                 echo "Falha no registro atualizado, tente novamente!" ; 
             }
@@ -278,7 +282,7 @@ private function validar_id_produto($id_produto){
             $query = "Delete from contas_receber WHERE cod_carteira = '$cod_carteira'" ;
             $sql = $this-> conn->query($query) ;
         if ( $sql == true ) {  
-            header ( "Location:update_receber.php?msg3=delete" ) ;
+            header ( "Location:consulta_receber.php?msg3=delete" ) ;
         } else {
             echo "O registro não exclui tente novamente" ; 
             }
@@ -298,7 +302,7 @@ private function validar_id_produto($id_produto){
         {   
             $sql = "INSERT INTO contas_pagar ( `cod_carteira`, `cod_banco`, `nr_conta`,`nr_agencia`,`ds_banco`,`vl_pago`,`vl_jurosmes`,`vl_jurosdia`,`data_vencimento`,`dt_pagamento`,`titulo`,`bordero`,`pix`,`boletobancario`,`cnpjcpf`,`vl_parcela`, `observacao` ) ";
             $sql = $sql."VALUES ('".$cod_carteira."', '".$cod_banco."', '".$nr_conta."','".$nr_agencia."','".$ds_banco."','".$vl_pago."','".$vl_jurosmes."','".$vl_jurosdia."','".$data_vencimento."','".$dt_pagamento."','".$titulo."','".$bordero."','".$pix."','".$boletobancario."','".$cnpjcpf."','".$vl_parcela."', '".$observacao."')";
-            if (mysqli_query($this->conn, $sql)) {
+            if (mysqli_query($this->conn,$sql)) {
               echo "Cadastro feito com sucesso";
           } else {
               echo "Error: " . $sql . "<br>" . mysqli_error(conn);
@@ -341,20 +345,21 @@ private function validar_id_produto($id_produto){
         $nr_conta = $this->conn->real_escape_string ($_POST['unr_conta'] ) ;
         $nr_agencia = $this->conn->real_escape_string ($_POST['unr_agencia'] ) ;
         $ds_banco = $this->conn->real_escape_string ($_POST['uds_banco'] ) ;
-        $valor_total = $this->conn->real_escape_string ($_POST['uvalor_total'] ) ;
+        $vl_pago = $this->conn->real_escape_string ($_POST['uvl_pago'] ) ;
         $vl_jurosmes = $this->conn->real_escape_string ($_POST['uvl_jurosmes'] ) ;
         $vl_jurosdia = $this->conn->real_escape_string ($_POST['uvl_jurosdia'] ) ;
-        $dt_vencimento = $this->conn->real_escape_string ($_POST['udt_vencimento'] ) ;
-        $dt_recebimento = $this->conn->real_escape_string ($_POST['udt_recebimento'] ) ;
+        $data_vencimento = $this->conn->real_escape_string ($_POST['udata_vencimento'] ) ;
+        $dt_pagamento = $this->conn->real_escape_string ($_POST['udt_pagamento'] ) ;
         $titulo = $this->conn->real_escape_string ($_POST['utitulo'] ) ;
         $bordero = $this->conn->real_escape_string ($_POST['ubordero'] ) ;
         $pix = $this->conn->real_escape_string ($_POST['upix'] ) ;
         $boletobancario = $this->conn->real_escape_string ($_POST['uboletobancario'] ) ;
-        $cpfcnpj = $this->conn->real_escape_string ($_POST['ucpfcnpj'] ) ;
+        $vl_parcela = $this->conn->real_escape_string ($_POST['uvl_parcela'] ) ;
+        $cnpjcpf = $this->conn->real_escape_string ($_POST['ucnpjcpf'] ) ;
         $observacao = $this->conn->real_escape_string ($_POST['uobservacao'] ) ;
-        $cod_carteira = $this->conn->real_escape_string ($_POST['cod_carteira '] ) ;
+        $cod_carteira = $this->conn->real_escape_string ($_POST['cod_carteira'] ) ;
     if (!empty($cod_carteira) && !empty($postData)) {  
-        $query = "UPDATE contas_pagar SET cod_banco = '$cod_banco', nr_conta = '$nr_conta', nr_agencia = '$nr_agencia',ds_banco = '$ds_banco',valor_total = '$valor_total',vl_jurosmes = '$vl_jurosmes',vl_jurosdia = '$vl_jurosdia',dt_vencimento = '$dt_vencimento',dt_recebimento = '$dt_recebimento',bordero = '$bordero', pix = '$pix',titulo = '$titulo', cpfcnpj = '$cpfcnpj',boletobancario = '$boletobancario', observacao = '$observacao' WHERE cod_carteira = '$cod_carteira'" ;
+        $query = "UPDATE contas_pagar SET cod_banco = '$cod_banco', nr_conta = '$nr_conta', nr_agencia = '$nr_agencia',ds_banco = '$ds_banco',vl_pago = '$vl_pago',vl_jurosmes = '$vl_jurosmes',vl_jurosdia = '$vl_jurosdia',data_vencimento = '$data_vencimento',dt_pagamento = '$dt_pagamento',bordero = '$bordero', pix = '$pix',titulo = '$titulo', vl_parcela = '$vl_parcela', cnpjcpf = '$cnpjcpf',boletobancario = '$boletobancario', observacao = '$observacao' WHERE cod_carteira = '$cod_carteira'" ;
         $sql = $this->conn->query ($query) ;
         if ( $sql == true ) {  
             header ( "Location:consulta_pagar.php?msg2=update" ) ;
@@ -370,7 +375,7 @@ private function validar_id_produto($id_produto){
         $query = "Delete from contas_pagar WHERE cod_carteira = '$cod_carteira'" ;
         $sql = $this-> conn->query($query) ;
     if ( $sql == true ) {  
-        header ( "Location:update_pagar.php?msg3=delete" ) ;
+        header ( "Location:consulta_pagar.php?msg3=delete" ) ;
     } else {
         echo "O registro não exclui tente novamente" ; 
         }
@@ -435,17 +440,17 @@ public function atualizar_fornecedor ($postData)
     $endereco = $this->conn->real_escape_string ($_POST['uendereco'] ) ;
     $bairro = $this->conn->real_escape_string ($_POST['ubairro'] ) ;
     $complemento = $this->conn->real_escape_string ($_POST['ucomplemento'] ) ;
-    $cpfcnpj = $this->conn->real_escape_string ($_POST['ucpfcnpj'] ) ;
+    $cnpjcpf = $this->conn->real_escape_string ($_POST['ucnpjcpf'] ) ;
     $telefone = $this->conn->real_escape_string ($_POST['utelefone'] ) ;
     $email = $this->conn->real_escape_string ($_POST['uemail'] ) ;
     $whatsapp = $this->conn->real_escape_string ($_POST['uwhatsapp'] ) ;
     $observacao = $this->conn->real_escape_string ($_POST['uobservacao'] ) ;
-    $id_fornecedor = $this->conn->real_escape_string ($_POST['id_fornecedor '] ) ;
+    $id_fornecedor = $this->conn->real_escape_string ($_POST['id_fornecedor'] ) ;
 if (!empty($id_fornecedor) && !empty($postData)) {  
-    $query = "UPDATE fornecedor SET ds_fornecedor = '$ds_fornecedor', cidade = '$cidade', endereco = '$endereco', bairro = '$bairro', complemento = '$complemento', cpfcnpj = '$cpfcnpj', telefone = '$telefone', email = '$email', whatssapp = '$whatsapp', observacao = '$observacao' WHERE id_fornecedor = '$id_fornecedor'" ;
+    $query = "UPDATE fornecedor SET ds_fornecedor = '$ds_fornecedor', cidade = '$cidade', endereco = '$endereco', bairro = '$bairro', complemento = '$complemento', cnpjcpf = '$cnpjcpf', telefone = '$telefone', email = '$email', whatsapp = '$whatsapp', observacao = '$observacao' WHERE id_fornecedor = '$id_fornecedor'" ;
     $sql = $this->conn->query ($query) ;
     if ( $sql == true ) {  
-        header ( "Location:display.php?msg2=update" ) ;
+        header ( "Location:consulta_fornecedor.php?msg2=update" ) ;
     } else {
         echo "Falha no registro atualizado, tente novamente!" ; 
     }
@@ -453,12 +458,12 @@ if (!empty($id_fornecedor) && !empty($postData)) {
     
 }
 // Excluir dados do cliente da tabela de fornecedor
-public function excluir_fornecedor( $id )  
+public function excluir_fornecedor( $id_fornecedor )  
 {
-    $query = "Delete from fornecedor WHERE id = '$id_venda'" ;
+    $query = "Delete from fornecedor WHERE id_fornecedor = '$id_fornecedor'" ;
     $sql = $this->conn->query($query) ;
 if ( $sql == true ) {  
-    header ( "Location:cadastro.php?msg3=delete" ) ;
+    header ( "Location:consulta_fornecedor.php?msg3=delete" ) ;
 } else {
     echo "O registro não exclui tente novamente" ; 
     }
@@ -469,20 +474,20 @@ if ( $sql == true ) {
     
 
     //***************************************************************************************************************************************************************** */
-    private function validar_venda($id_venda){
-        if ($id_venda < 0){
+    private function validar_venda($vl_notafiscal){
+        if ($vl_notafiscal < 0){
             echo "Venda não cadastrada";
             return FALSE;
         }
         return TRUE;
     }
     
-    public function adicionar_venda($id_prod, $id_cl, $id_fornec, $vl_vendatotal, $vl_produto, $vl_notafiscal, $dt_venda, $dt_compra, $ds_venda, $observacao)
+    public function adicionar_venda($id_prod, $id_cl, $id_fornec, $vl_vendatotal, $vl_produto, $vl_notafiscal, $dt_venda, $ds_venda, $observacao)
     {
-        if ($this->validar_venda($id_venda))
+        if ($this->validar_venda($vl_notafiscal))
         {   
-            $sql = "INSERT INTO vendas ( `id_prod`, `id_cl`, `id_fornec`, `vl_vendatotal`,`vl_produto`, `vl_notafiscal`, `dt_venda`, `dt_compra`, `ds_venda`, `observacao` ) ";
-            $sql = $sql."VALUES ('".$id_prod."', '".$id_cl."', '".$id_fornec."', '".$vl_vendatotal."','".$vl_produto."','".$vl_notafiscal."','".$dt_venda."','".$dt_compra."','".$ds_venda."','".$observacao."')";
+            $sql = "INSERT INTO vendas ( `id_prod`, `id_cl`, `id_fornec`, `vl_vendatotal`,`vl_produto`, `vl_notafiscal`, `dt_venda`,`ds_venda`, `observacao` ) ";
+            $sql = $sql."VALUES ('".$id_prod."', '".$id_cl."', '".$id_fornec."', '".$vl_vendatotal."','".$vl_produto."','".$vl_notafiscal."','".$dt_venda."','".$ds_venda."','".$observacao."')";
             if (mysqli_query($this->conn,$sql)) {
               echo "Cadastro feito com sucesso";
           } else {
@@ -508,7 +513,7 @@ if ( $sql == true ) {
         }
     }
     // Busca dados únicos para edição da tabela de alunos
-    public function selecionar_venda1($id_venda)  
+    public function selecionar_vendas1($id_venda)  
     {
         $query = "SELECT * FROM vendas WHERE id_venda = '$id_venda'" ;
         $result = $this->conn->query($query) ;
@@ -520,24 +525,23 @@ if ( $sql == true ) {
         }
     }
     // Atualiza os dados do cliente na tabela venda
-    public function atualizar_venda ($postData)  
+    public function atualizar_vendas ($postData)  
     {
         $id_prod = $this->conn-> real_escape_string ($_POST['uid_prod'] ) ;
         $id_cl = $this->conn->real_escape_string ($_POST['uid_cl'] ) ;
-        $id_fornec = $this->conn->real_escape_string ($_POST['uidfornec'] ) ;
+        $id_fornec = $this->conn->real_escape_string ($_POST['uid_fornec'] ) ;
         $vl_vendatotal = $this->conn->real_escape_string ($_POST['uvl_vendatotal'] ) ;
         $vl_produto = $this->conn->real_escape_string ($_POST['uvl_produto'] ) ;
-        $vl_notafiscal = $this->conn->real_escape_string ($_POST['vl_notafiscal'] ) ;
+        $vl_notafiscal = $this->conn->real_escape_string ($_POST['uvl_notafiscal'] ) ;
         $dt_venda = $this->conn->real_escape_string ($_POST['udt_venda'] ) ;
-        $dt_compra = $this->conn->real_escape_string ($_POST['udt_compra'] ) ;
         $ds_venda = $this->conn->real_escape_string ($_POST['uds_venda'] ) ;
         $observacao = $this->conn->real_escape_string ($_POST['uobservacao'] ) ;
-        $id_venda = $this->conn->real_escape_string ($_POST['id_venda '] ) ;
+        $id_venda = $this->conn->real_escape_string ($_POST['id_venda'] ) ;
     if (!empty($id_venda) && !empty($postData)) {  
-        $query = "UPDATE vendas SET id_prod = '$id_prod', id_cl = '$id_cl', id_fornec = '$id_fornec', vl_vendatotal = '$vl_vendatotal', vl_produto = '$vl_produto', vl_notafiscal = '$vl_notafiscal', dt_venda = '$dt_venda', dt_compra = '$dt_compra', ds_venda = '$ds_venda', observacao = '$observacao' WHERE id_venda = '$id_venda'" ;
+        $query = "UPDATE vendas SET id_prod = '$id_prod', id_cl = '$id_cl', id_fornec = '$id_fornec', vl_vendatotal = '$vl_vendatotal', vl_produto = '$vl_produto', vl_notafiscal = '$vl_notafiscal', dt_venda = '$dt_venda',  ds_venda = '$ds_venda', observacao = '$observacao' WHERE id_venda = '$id_venda'" ;
         $sql = $this->conn->query ($query) ;
         if ( $sql == true ) {  
-            header ( "Location:display.php?msg2=update" ) ;
+            header ( "Location:consulta_vendas.php?msg2=update" ) ;
         } else {
             echo "Falha no registro atualizado, tente novamente!" ; 
         }
@@ -545,21 +549,52 @@ if ( $sql == true ) {
         
     }
     // Excluir dados do cliente da tabela venda
-    public function excluir_venda( $id )  
+    public function excluir_venda($id_venda)  
     {
-        $query = "Delete from vendas WHERE id = '$id_venda'" ;
-        $sql = $this-> conn->query($query) ;
+        $query = "Delete from vendas WHERE id_venda = '$id_venda'" ;
+        $sql = $this->conn->query($query) ;
     if ( $sql == true ) {  
-        header ( "Location:cadastro.php?msg3=delete" ) ;
+        header ( "Location:consulta_vendas.php?msg3=delete" ) ;
     } else {
         echo "O registro não exclui tente novamente" ; 
         }
     }
     
     
-}     
+
+
+
+   //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  public function selecionar_login($email)
+  {
+    $email = $this->conn->real_escape_string ($_POST['email']);
+    $senha = $this->conn->real_escape_string ($_POST['senha']); 
+
+    $query = "select * from clientes where email = '$email' and senha = '$senha' ";
+ 
+    $result = $this->conn->query($query) ;
+ 
+    $row = mysqli_num_rows($result);
+ 
+if($row == 1) {
+	$email = $result->fetch_assoc();
+	header('Location: principal.php');
+
+    if (!isset($_SESSION)){
+        session_start();
+    }
+    $_SESSION['id'] = $email['id_cliente'];
+    $Session['nome'] = $email['nome'];
+	exit();
+} else {
+	$_SESSION['nao_autenticado'] = true;
+	header('Location: login.php');
+	exit();
+}
+  }
    
-   
+    }
+
    ?>
 
     

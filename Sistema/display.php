@@ -19,7 +19,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 </head>
+<style>
+  .home{
+    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+}
+body{
+    font-family: Roboto Flex;
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+    color: white;
+}
+.table{
+  color:white;
+}
+.card{
+  background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+  color: white;;
+}
+
+</style>  
 <body>
+<a class="home" href="principal.php">Home</a>
 <div class="card text-center" style="padding:15px;">
   <h4>Consulta Clientes</h4>
 </div><br><br> 
@@ -45,10 +70,8 @@
     }
   ?>
   <h2><div class="form-group">
-                      <label for="nome">Nome:</label>
-                      <input type="text" class="form-control" name="nome" placeholder="Entre com o nome" required="">
-                    </div> <button class="btn btn-primary mr-2"><a href="display.php?editId=<?php echo $cliente['id_cliente'] ?>">
-              <i class="fa fa-search text-white" aria-hidden="true"></i></a></button></h2>
+  <label for="nome">Cliente</label><a href="cadastro.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a></h2>
+                      
   <table class="table table-hover">
     <thead>
       <tr>
@@ -59,7 +82,7 @@
         <th>Complemento</th>
         <th>Email</th>
         <th>WhatsApp</th>
-        <th>Observação</th>
+       
       </tr>
     </thead>
     <tbody>
@@ -75,7 +98,7 @@
           <td><?php echo $cliente['complemento'] ?></td>
           <td><?php echo $cliente['email'] ?></td>
           <td><?php echo $cliente['whatsapp'] ?></td>
-          <td><?php echo $cliente['observacao'] ?></td>
+          
           <td>
             <button class="btn btn-primary mr-2"><a href="update.php?editId=<?php echo $cliente['id_cliente'] ?>">
               <i class="fa fa-pencil text-white" aria-hidden="true"></i></a></button>
