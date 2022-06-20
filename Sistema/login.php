@@ -29,11 +29,102 @@ $cliente = $DBMagico->selecionar_login($email);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styleLogin.css">
     <title>tela de login | AWM</title>
+
+    <!-- favicon  -->
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+    <style>
+        body{
+            font-family: Roboto Flex;
+            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
+        }
+        .login{
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(50%, -49%);
+            padding: 3.2rem;
+            border-radius: 1rem;
+            color: white;
+        }
+
+        .texto{
+            
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            transform: translate(-110%, -40%);
+            padding: 3rem;
+            padding-top: 1.6rem;
+            border-radius: 1rem;
+            color: white;
+        }
+        input{
+            padding: 1rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            border-radius: 1rem;
+        }
+
+       .botao{
+        display: flex;
+       }
+
+        button{
+            background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+            border-radius: 1rem;
+            padding: 6px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size:12px;
+            cursor: pointer;
+        }
+
+        .suporte{
+            height: 70px;
+            width: 65px;
+        }
+
+        .inputSubmit{
+            background-color: dodgerblue;
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            border-radius: 1rem;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+                        
+        }
+        .inputSubmit:hover{
+            background-color: deepskyblue;
+        }
+
+        .voltar{
+            background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 15px;
+            padding: 10px;
+        }
+
+    .login img{
+        height: 90px;
+        width: 200px; 
+    }    
+    </style>
+
 </head>
 <body>
-
+<!--
     <section class="content">
         <div class="texto">
             <img class="suporte" src="images/icone-suporte.png">
@@ -50,10 +141,10 @@ $cliente = $DBMagico->selecionar_login($email);
                     </div>
         </div>
     </section>
-
+    -->
     
     <div class="login">
-        <img src="/images/logo4.png" alt="">
+        <img src="images/AWM.png" alt="">
         <h1>Login</h1>
         <form action="login.php" method="POST">
             <input type="text" name="email" placeholder="Email">

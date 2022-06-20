@@ -22,8 +22,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-</head>
-<style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,600&display=swap" rel="stylesheet">
+
+  <style>
         body{
     font-family: Roboto Flex;
     background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(11, 30, 54));
@@ -96,6 +99,9 @@ legend{
     background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
 }
     </style>
+</head>
+
+
 <body>
 <div class="card text-center" style="padding:15px;">
 <legend><b>Fórmulário Clientes</b></legend>
